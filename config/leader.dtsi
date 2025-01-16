@@ -5,7 +5,6 @@
             leader: leader { \
                 compatible = "zmk,behavior-leader-key"; \
                 #binding-cells = <0>; \
-                ignore-keys = <LSHFT RSHFT>; \
                 leader_sequence_ ## name { \
                     bindings = <leader_bindings>; \
                     sequence = <leader_sequence>; \
@@ -14,43 +13,19 @@
         }; \
     };
 
-/* German umlauts */
-ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         A)  // ä
-ZMK_LEADER_SEQUENCE(de_oe,      &de_oe,         O)  // ö
-ZMK_LEADER_SEQUENCE(de_ue,      &de_ue,         U)  // ü
-ZMK_LEADER_SEQUENCE(de_eszett,  &de_eszett,     S)  // ß
 
-/* Greek letters */
-ZMK_LEADER_SEQUENCE(el_alpha,   &el_alpha,      E A)  // α
-ZMK_LEADER_SEQUENCE(el_beta,    &el_beta,       E B)  // β
-ZMK_LEADER_SEQUENCE(el_gamma,   &el_gamma,      E G)  // γ
-ZMK_LEADER_SEQUENCE(el_delta,   &el_delta,      E D)  // δ
-ZMK_LEADER_SEQUENCE(el_epsilon, &el_epsilon,    E E)  // ε
-ZMK_LEADER_SEQUENCE(el_zeta,    &el_zeta,       E Z)  // ζ
-ZMK_LEADER_SEQUENCE(el_eta,     &el_eta,        E H)  // η
-ZMK_LEADER_SEQUENCE(el_theta,   &el_theta,      E V)  // θ
-ZMK_LEADER_SEQUENCE(el_iota,    &el_iota,       E I)  // ι
-ZMK_LEADER_SEQUENCE(el_kappa,   &el_kappa,      E K)  // κ
-ZMK_LEADER_SEQUENCE(el_lambda,  &el_lambda,     E L)  // λ
-ZMK_LEADER_SEQUENCE(el_mu,      &el_mu,         E M)  // μ
-ZMK_LEADER_SEQUENCE(el_nu,      &el_nu,         E N)  // ν
-ZMK_LEADER_SEQUENCE(el_xi,      &el_xi,         E X)  // ξ
-ZMK_LEADER_SEQUENCE(el_omikron, &el_omikron,    E O)  // ο
-ZMK_LEADER_SEQUENCE(el_pi,      &el_pi,         E P)  // π
-ZMK_LEADER_SEQUENCE(el_rho,     &el_rho,        E R)  // ρ
-ZMK_LEADER_SEQUENCE(el_sigma,   &el_sigma,      E S)  // σ
-ZMK_LEADER_SEQUENCE(el_tau,     &el_tau,        E T)  // τ
-ZMK_LEADER_SEQUENCE(el_upsilon, &el_upsilon,    E U)  // υ
-ZMK_LEADER_SEQUENCE(el_phi,     &el_phi,        E F)  // ϕ
-ZMK_LEADER_SEQUENCE(el_chi,     &el_chi,        E C)  // χ
-ZMK_LEADER_SEQUENCE(el_psi,     &el_psi,        E Y)  // ψ
-ZMK_LEADER_SEQUENCE(el_omega,   &el_omega,      E W)  // ω
 
-// BLE and USB
-#ifdef CONFIG_WIRELESS
-ZMK_LEADER_SEQUENCE(usb,        &out OUT_USB,   U S B)
-ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)
-#endif // CONFIG_WIRELESS
-ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
-ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
+// aerospace leader key sequences
+ZMK_LEADER_SEQUENCE(aero_jr,      &kp LA(LS(LG(L))),    J L )
+ZMK_LEADER_SEQUENCE(aero_jd,      &kp LA(LS(LG(K))),    J K )
+ZMK_LEADER_SEQUENCE(aero_ju,      &kp LA(LS(LG(I))),    J I )
+ZMK_LEADER_SEQUENCE(aero_jl,      &kp LA(LS(LG(J))),    J J )
+ZMK_LEADER_SEQUENCE(aero_tile,    &kp LA(FSLH),           T )
+ZMK_LEADER_SEQUENCE(aero_accd,    &kp LA(COMMA),          A )
+ZMK_LEADER_SEQUENCE(aero_flt,     &kp LA(DOT),            F )
+ZMK_LEADER_SEQUENCE(aero_move,    &kp LA(LS(TAB)),        M )
+ZMK_LEADER_SEQUENCE(browser_rel,  &kp LG(R),              R )
+ZMK_LEADER_SEQUENCE(browser_tab,  &kp LG(T),              T )
+
+
 

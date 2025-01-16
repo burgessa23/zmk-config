@@ -13,6 +13,10 @@
 #
 ---
 include:
+  - board: seeeduino_xiao_ble
+    shield: totem_left
+  - board: seeeduino_xiao_ble
+    shield: totem_right
   - board: planck_rev6
   - board: corneish_zen_v2_left
   - board: corneish_zen_v2_right

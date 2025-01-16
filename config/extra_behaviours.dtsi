@@ -1,0 +1,58 @@
+
+ZMK_BEHAVIOR(u_left, tap_dance,
+    tapping-term-ms = <150>;
+    bindings = <&kp LA(LEFT)>,<&kp LG(LEFT)>;
+)
+
+ZMK_BEHAVIOR(u_right, tap_dance,
+    tapping-term-ms = <150>;
+    bindings = <&kp LA(RIGHT)>,<&kp LG(RIGHT)>;
+)
+
+ZMK_BEHAVIOR(swapper, tri_state,
+    bindings = <&kt LCMD>, <&kp TAB>, <&kt LCMD>;
+)
+
+ZMK_BEHAVIOR(as, hold_tap,
+    flavor = "tap-preferred";
+    tapping-term-ms = <280>;
+    bindings = <&kp>, <&kp>;
+)
+
+ZMK_HOLD_TAP(esc_switch_copy,
+    flavor = "balanced";
+    tapping-term-ms = <250>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&esc_switch_copy_dance>;
+)
+
+ZMK_TAP_DANCE(esc_switch_copy_dance,
+    tapping-term-ms = <225>;
+    bindings = <&kp ESC>, <&kp LA(LG(LC(Z)))>;
+)
+
+ZMK_HOLD_TAP(ldr_fn_tab,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&ldr_fn_tab_tap>;
+)
+
+ZMK_TAP_DANCE(ldr_fn_tab_tap,
+    tapping-term-ms = <250>;
+    bindings = <&kp TAB>, <&leader>;
+)
+
+ZMK_HOLD_TAP(q_excl_slsh,
+    flavor = "balanced";
+    tapping-term-ms = <250>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&q_excl_slsh_dance>;
+)
+
+ZMK_TAP_DANCE(q_excl_slsh_dance,
+    tapping-term-ms = <225>;
+    bindings = <&kp SLASH>, <&kp EXCL>;
+)
+
+
