@@ -44,18 +44,20 @@ parse_config:
     "&kp LC(LG(LA(H)))": Hint
     "&kp LC(LG(LA(G)))": Grid
 
+    "&aero_fwd": { "t": "Pane fwd", "h": "Desk fwd" }
+    "&aero_back": { "t": "Pane back", "h": "Desk back" }
     "&soft_off": Sleep
     "&swapper": Next Win
     "&kp LS(TAB)": Prev Win
     "&dot_spc": Sentence
     "&num_dance": { "t": "Numword", "s": "Sticky Num" }
     "&magic": Repeat / Smart Shift
-    "&smart_mouse": Smart Mouse
+    "&smart_mouse": $$mdi:mouse-scroll-wheel$$
     "&smart_num": Smart Num
     "&gui_ray_switch": 
       "tap": Raycast 
       "shifted": Paste
-      "hold": $$mdi:apple-keyboard-command$$
+      "hold": Hyper
     "&ldr_fn_tab": { "t": "Tab", "s": "Leader", "h": "Fn" }
     "&esc_switch_copy": { "t": "Esc", "s": "Apps", "h": "Meh" }
     "&q_excl_slsh": { "t": "/ ?", "s": "!" }
@@ -66,7 +68,7 @@ parse_config:
     "&c_cpy": { "t": "C", "s": "Copy" }
     "&v_pst": { "t": "V", "s": "Paste" }
     "&r_rld": { "t": "R", "s": "Reload" }
-    "&q_esc": { "t": "Q", "s": "Esc" }
+    "&q_esc": { "t": "Q", "h": "Esc" }
     "&paste_buff": Paste
     # "&smart_shft": Smart Shift
 

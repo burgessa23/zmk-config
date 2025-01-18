@@ -17,7 +17,7 @@
         name,                                                                  \
                  LT RT                                                         \
                  LM RM                                                         \
- ESC_SWITCH_COPY LB RB &smart_shft                                             \
+       AERO_BACK LB RB AERO_FWD                                                \
   GUI_RAY_SWITCH LH RH &mt LALT F12                                            \
     )
 

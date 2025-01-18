@@ -82,33 +82,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
 /* Nav cluster */
 
-// long-tap action on hold, short-tap action on all interrupts
-#define MT_CORE \
-    flavor = "tap-preferred"; \
-    tapping-term-ms = <220>; \
-    quick-tap-ms = <220>; \
-    hold-trigger-key-positions = <0>;
-
-&mt { MT_CORE };
-ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
-ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
-
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LG(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LG(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt LA(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt LA(DEL)  DEL     // tap: del   | long-tap: delete word forward
-
-// mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
-#define MASK_MODS(NAME, MODS, BINDING) \
-    ZMK_MOD_MORPH(NAME, \
-        bindings = <BINDING>, <BINDING>; \
-        mods = <MODS>; \
-    )
-MASK_MODS(masked_home, (MOD_LGUI), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LGUI), &kp END)
-
 /* Caps-word, num-word and smart-mouse */
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
@@ -193,7 +166,14 @@ ZMK_TAP_DANCE(copy_cut,
     bindings = <&kp LG(C)>, <&kp LG(X)>;
 )
 
-ZMK_TAP_DANCE(q_esc,
+// tap: q | hold / double-tap: esc                                                                                                
+ZMK_HOLD_TAP(q_esc,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&q_esc_taps>;
+)
+ZMK_TAP_DANCE(q_esc_taps,
     tapping-term-ms = <250>;
     bindings = <&kp Q>, <&kp ESC>;
 )
@@ -235,11 +215,14 @@ SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 #define GRID            &kp LC(LG(LA(G)))
 #define HINT            &kp LG(LA(H))
 #define ESC_SWITCH_COPY &esc_switch_copy RG(LC(LALT)) 0
-#define GUI_RAY_SWITCH  &gui_ray_switch LGUI 0
+#define GUI_RAY_SWITCH  &gui_ray_switch RG(LC(LALT)) 0
 #define LDR_FN_TAB      &ldr_fn_tab FN 0
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &lt SYM BSPC
 #define HMR_J_SSHFT     &s_hmr 0 J
+#define AERO_FWD        &aero_fwd LA(SQT) LA(L)
+#define AERO_BACK       &aero_back LA(H) LA(J)
+#define Q_ESC           &q_esc ESC 0
 
 /* Keymap */
 
@@ -253,7 +236,7 @@ ZMK_CONDITIONAL_LAYER(Sys, NAV NUM, SYS)  // NAV + NUM --> SYS
 
 ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &q_esc        AS(W)         AS(E)          AS(R)         AS(T)       ,   AS(Y)         AS(U)         AS(I)         AS(O)         AS(P)       ,
+   Q_ESC         AS(W)         AS(E)          AS(R)         AS(T)       ,   AS(Y)         AS(U)         AS(I)         AS(O)         AS(P)       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  AS(G)        ,   AS(H)         &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SQT,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤

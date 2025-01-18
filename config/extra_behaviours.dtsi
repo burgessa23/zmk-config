@@ -31,6 +31,20 @@ ZMK_TAP_DANCE(esc_switch_copy_dance,
     bindings = <&kp ESC>, <&kp LA(LG(LC(Z)))>;
 )
 
+ZMK_HOLD_TAP(aero_back,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+)
+
+ZMK_HOLD_TAP(aero_fwd,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+)
+
 ZMK_HOLD_TAP(ldr_fn_tab,
     flavor = "balanced";
     tapping-term-ms = <280>;
