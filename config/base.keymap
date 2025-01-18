@@ -97,8 +97,8 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 #define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
 #define NAV_UP    &mt LG(HOME) UP      // tap: up    | long-tap: beginning of document
 #define NAV_DOWN  &mt LG(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt LG(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt LG(DEL)  DEL     // tap: del   | long-tap: delete word forward
+#define NAV_BSPC  &mt LA(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL   &mt LA(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
 // mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
 #define MASK_MODS(NAME, MODS, BINDING) \
@@ -106,8 +106,8 @@ ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
         bindings = <BINDING>, <BINDING>; \
         mods = <MODS>; \
     )
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+MASK_MODS(masked_home, (MOD_LGUI), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LGUI), &kp END)
 
 /* Caps-word, num-word and smart-mouse */
 
@@ -255,7 +255,7 @@ ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &q_esc        AS(W)         AS(E)          AS(R)         AS(T)       ,   AS(Y)         AS(U)         AS(I)         AS(O)         AS(P)       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  AS(G)        ,   AS(H)         HMR_J_SSHFT   &hmr LCTRL K  &hmr LALT L  &hmr LGUI SQT,
+   &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  AS(G)        ,   AS(H)         &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SQT,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    AS(Z)         AS(X)         AS(C)         AS(V)         AS(B)        ,   AS(N)         AS(M)        &comma_morph  &dot_morph    Q_EXCL_SLSH  ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
