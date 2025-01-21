@@ -38,7 +38,7 @@ layers:
     - {t: Tab, h: Fn, s: Leader}
     - {t: '$$mdi:backspace$$', h: Sym}
     - Smart Num
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Nav:
     - Undo
     - Cut
@@ -77,7 +77,7 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - Next Win
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Sym:
     - '|'
     - '&'
@@ -116,7 +116,7 @@ layers:
     - )
     - {type: held}
     - Next Win
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Num:
     - {t: \, h: Sft+\, s: '|'}
     - {t: '7', h: Sft+7, s: '&'}
@@ -155,7 +155,7 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Fn:
     - F12
     - F7
@@ -194,7 +194,7 @@ layers:
     - $$mdi:keyboard-tab$$
     - $$mdi:volume-off$$
     - $$mdi:play-pause$$
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Sys:
     - {h: '1', s: '$$mdi:bluetooth-connect$$'}
     - {h: '2', s: '$$mdi:bluetooth-connect$$'}
@@ -233,7 +233,7 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Mouse:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -272,7 +272,7 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - Left Click
     - Right Click
-    - {t: F12, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: F12, h: Alt, s: Meh}
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:

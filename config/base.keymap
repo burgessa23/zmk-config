@@ -215,7 +215,8 @@ SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 #define GRID            &kp LC(LG(LA(G)))
 #define HINT            &kp LG(LA(H))
 #define ESC_SWITCH_COPY &esc_switch_copy RG(LC(LALT)) 0
-#define GUI_RAY_SWITCH  &gui_ray_switch RG(LC(LALT)) 0
+// #define GUI_RAY_SWITCH  &gui_ray_switch RG(LC(LALT)) 0
+#define GUI_RAY_SWITCH  &gui_ray_switch LGUI 0
 #define LDR_FN_TAB      &ldr_fn_tab FN 0
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &lt SYM BSPC
@@ -223,6 +224,7 @@ SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 #define AERO_FWD        &aero_fwd LA(SQT) LA(L)
 #define AERO_BACK       &aero_back LA(H) LA(J)
 #define Q_ESC           &q_esc ESC 0
+#define F12_ALT_MEH     &f12_alt_meh LALT 0
 
 /* Keymap */
 

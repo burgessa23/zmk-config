@@ -104,7 +104,7 @@ update:
 
 # upgrade zephyr-sdk and python dependencies
 upgrade-sdk:
-    nix flake update --flake .
+    nix --extra-experimental-features nix-command --extra-experimental-features flakes flake update --flake .
 
 [no-cd]
 test $testpath *FLAGS:

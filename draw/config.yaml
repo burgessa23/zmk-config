@@ -60,6 +60,7 @@ parse_config:
       "hold": Hyper
     "&ldr_fn_tab": { "t": "Tab", "s": "Leader", "h": "Fn" }
     "&esc_switch_copy": { "t": "Esc", "s": "Apps", "h": "Meh" }
+    "&f12_alt_meh": { "t": "F12", "s": "Meh", "h": "Alt" }
     "&q_excl_slsh": { "t": "/ ?", "s": "!" }
     "&t_ntab": { "t": "T", "s": "New tab" }
     "&copy_cut": Copy

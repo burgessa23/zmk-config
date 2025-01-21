@@ -69,4 +69,16 @@ ZMK_TAP_DANCE(q_excl_slsh_dance,
     bindings = <&kp SLASH>, <&kp EXCL>;
 )
 
+ZMK_HOLD_TAP(f12_alt_meh,
+    flavor = "balanced";
+    tapping-term-ms = <250>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&f12_alt_meh_dance>;
+)
+
+ZMK_TAP_DANCE(f12_alt_meh_dance,
+    tapping-term-ms = <225>;
+    bindings = <&kp F12>, <&sk RG(LC(LALT))>;
+)
+
 
