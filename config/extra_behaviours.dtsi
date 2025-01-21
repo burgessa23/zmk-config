@@ -45,18 +45,6 @@ ZMK_HOLD_TAP(aero_fwd,
     bindings = <&kp>, <&kp>;
 )
 
-ZMK_HOLD_TAP(ldr_fn_tab,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&ldr_fn_tab_tap>;
-)
-
-ZMK_TAP_DANCE(ldr_fn_tab_tap,
-    tapping-term-ms = <250>;
-    bindings = <&kp TAB>, <&leader>;
-)
-
 ZMK_HOLD_TAP(q_excl_slsh,
     flavor = "balanced";
     tapping-term-ms = <250>;

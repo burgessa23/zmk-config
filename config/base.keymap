@@ -204,6 +204,20 @@ ZMK_TAP_DANCE(gui_ray_switch_dance,
 SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 
 
+ZMK_HOLD_TAP(ldr_fn_tab,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&ldr_fn_tab_tap>;
+)
+
+ZMK_TAP_DANCE(ldr_fn_tab_tap,
+    tapping-term-ms = <250>;
+    bindings = <&tab_morph>, <&leader>;
+)
+
+SIMPLE_MORPH(tab_morph, SFT, &kp TAB, &smart_mouse)
+
 // Sticky shift + leader
 /* ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;) */
 
