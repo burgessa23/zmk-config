@@ -281,11 +281,11 @@ ZMK_BASE_LAYER(Base,
 
 ZMK_BASE_LAYER(Colemak,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   Q_ESC          AS(W)         AS(F)         AS(P)         AS(G)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     ,
+   Q_ESC          AS(W)         AS(F)         AS(P)         AS(B)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  AS(D)       ,   AS(H)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O ,
+    &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  AS(G)       ,   AS(M)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    AS(Z)         AS(X)         AS(C)         AS(V)         AS(B)       ,   AS(K)         AS(M)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
+    AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)       ,   AS(K)         AS(H)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                              &lt_spc NAV 0  LDR_FN_TAB  ,   SYM_DEL        SMART_NUM
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯

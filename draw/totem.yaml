@@ -29,8 +29,47 @@ layers:
     - {t: B, h: Sft+B}
     - {t: N, h: Sft+N}
     - {t: M, h: Sft+M}
-    - {t: ',', s: ;}
-    - {t: ., s: ':'}
+    - {t: ',', h: ;, s: <}
+    - {t: ., h: ':', s: '>'}
+    - {t: '/ ?', s: '!'}
+    - {t: Pane fwd, h: Desk fwd}
+    - {t: Raycast, h: Hyper, s: Paste}
+    - {t: '$$mdi:keyboard-space$$', h: Nav, s: Sentence}
+    - {t: Tab, h: Fn, s: Leader}
+    - {t: '$$mdi:backspace$$', h: Sym}
+    - Smart Num
+    - {t: F12, h: Alt, s: Meh}
+  Colemak:
+    - {t: Q, h: Esc}
+    - {t: W, h: Sft+W}
+    - {t: F, h: Sft+F}
+    - {t: P, h: Sft+P}
+    - {t: B, h: Sft+B}
+    - {t: J, h: Sft+J}
+    - {t: L, h: Sft+L}
+    - {t: U, h: Sft+U}
+    - {t: Y, h: Sft+Y}
+    - {t: '''', h: Sft+', s: '"'}
+    - {t: A, h: '$$mdi:apple-keyboard-command$$'}
+    - {t: R, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: S, h: '$$mdi:apple-keyboard-control$$'}
+    - {t: T, h: '$$mdi:apple-keyboard-shift$$'}
+    - {t: G, h: Sft+G}
+    - {t: M, h: Sft+M}
+    - {t: N, h: '$$mdi:apple-keyboard-shift$$'}
+    - {t: E, h: '$$mdi:apple-keyboard-control$$'}
+    - {t: I, h: '$$mdi:apple-keyboard-option$$'}
+    - {t: O, h: '$$mdi:apple-keyboard-command$$'}
+    - {t: Pane back, h: Desk back}
+    - {t: Z, h: Sft+Z}
+    - {t: X, h: Sft+X}
+    - {t: C, h: Sft+C}
+    - {t: D, h: Sft+D}
+    - {t: V, h: Sft+V}
+    - {t: K, h: Sft+K}
+    - {t: H, h: Sft+H}
+    - {t: ',', h: ;, s: <}
+    - {t: ., h: ':', s: '>'}
     - {t: '/ ?', s: '!'}
     - {t: Pane fwd, h: Desk fwd}
     - {t: Raycast, h: Hyper, s: Paste}
@@ -55,22 +94,22 @@ layers:
     - $$mdi:apple-keyboard-control$$
     - $$mdi:apple-keyboard-shift$$
     - Copy URL
-    - Prev Desk
+    - Back
     - $$mdi:arrow-left-bold$$
     - $$mdi:arrow-down-bold$$
     - $$mdi:arrow-right-bold$$
-    - Next Desk
+    - Fwd
     - {t: Pane back, h: Desk back}
     - {t: '$$mdi:apple-keyboard-command$$', h: '$$mdi:gesture-tap-hold$$'}
     - {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
     - {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
     - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
     - Next tab
-    - Back
-    - Word back
+    - Gui+$$mdi:arrow-left-bold$$
+    - Alt+$$mdi:arrow-left-bold$$
     - Scroll
-    - Word fwd
-    - Fwd
+    - Alt+$$mdi:arrow-right-bold$$
+    - Gui+$$mdi:arrow-right-bold$$
     - {t: Pane fwd, h: Desk fwd}
     - {t: Raycast, h: Hyper, s: Paste}
     - {type: held}
@@ -186,14 +225,14 @@ layers:
     - F13
     - Teams Cam
     - Teams Mic
-    - {t: '$$mdi:transfer$$', type: trans}
+    - $$mdi:play-pause$$
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: Pane fwd, h: Desk fwd}
     - {t: Raycast, h: Hyper, s: Paste}
     - {t: '$$mdi:transfer$$', type: trans}
     - $$mdi:keyboard-tab$$
+    - {t: '$$mdi:transfer$$', type: trans}
     - $$mdi:volume-off$$
-    - $$mdi:play-pause$$
     - {t: F12, h: Alt, s: Meh}
   Sys:
     - {h: '1', s: '$$mdi:bluetooth-connect$$'}
@@ -201,7 +240,7 @@ layers:
     - {h: '3', s: '$$mdi:bluetooth-connect$$'}
     - {h: '4', s: '$$mdi:bluetooth-connect$$'}
     - $$mdi:bluetooth-off$$
-    - {t: '$$mdi:transfer$$', type: trans}
+    - {t: Colemak, h: toggle}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -351,9 +390,6 @@ combos:
   - p: [31, 19]
     k: Fwd
     l: [Combos]
-  - p: [34, 35]
-    k: $$mdi:mouse-scroll-wheel$$
-    l: [Combos]
   - p: [20, 31]
     k: Sleep
     l: [Combos]
@@ -362,7 +398,4 @@ combos:
     l: [Combos]
   - p: [13, 16]
     k: $$mdi:alpha-w-box$$
-    l: [Combos]
-  - p: [1, 3]
-    k: $$mdi:mouse-scroll-wheel$$
     l: [Combos]
