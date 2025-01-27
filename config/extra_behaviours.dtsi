@@ -31,20 +31,6 @@ ZMK_TAP_DANCE(esc_switch_copy_dance,
     bindings = <&kp ESC>, <&kp LA(LG(LC(Z)))>;
 )
 
-ZMK_HOLD_TAP(aero_back,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&kp>;
-)
-
-ZMK_HOLD_TAP(aero_fwd,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&kp>;
-)
-
 ZMK_HOLD_TAP(q_excl_slsh,
     flavor = "balanced";
     tapping-term-ms = <250>;
@@ -61,12 +47,13 @@ ZMK_HOLD_TAP(f12_alt_meh,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&f12_alt_meh_dance>;
+    bindings = <&kp>, <&kp>;
 )
 
-ZMK_TAP_DANCE(f12_alt_meh_dance,
+ZMK_BEHAVIOR(asn, hold_tap,
+    flavor = "tap-preferred";
     tapping-term-ms = <250>;
-    bindings = <&kp F12>, <&sk RG(LC(LALT))>;
+    bindings = <&kp>, <&kp>;
 )
 
 

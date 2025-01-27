@@ -70,6 +70,36 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
     MAKE_HRM(hm_combo_ ## NAME, &kp, TAP, SIDE THUMBS) \
     ZMK_COMBO_6(NAME, &hm_combo_ ## NAME HOLD 0, KEYPOS, LAYERS, COMBO_TERM, COMBO_IDLE)
 
+
+/* Homerow retro mods */
+
+#define MAKE_RETRO_HRM(NAME, HOLD, TAP, RETRO, TRIGGER_POS) \
+    ZMK_HOLD_TAP(NAME, \
+         flavor = "balanced"; \
+         tapping-term-ms = <200>; \
+         quick-tap-ms = <200>; \
+         require-prior-idle-ms = <125>; \
+         bindings = <HOLD>, <TAP>; \
+         retro-tap; \
+         retro-tap-behavior = "key_press"; \
+         retro-tap-param1 = <RETRO>; \
+         hold-trigger-key-positions = <TRIGGER_POS>; \
+         hold-trigger-on-release; \
+     ) 
+
+/* Tap: letter | Hold + key: HRM | Hold: number */
+/* qwerty */
+MAKE_RETRO_HRM(rhml_s, &kp, &kp, N4, KEYS_R THUMBS) 
+MAKE_RETRO_HRM(rhml_d, &kp, &kp, N5, KEYS_R THUMBS) 
+MAKE_RETRO_HRM(rhml_f, &kp, &kp, N6, KEYS_R THUMBS) 
+
+/* Combos, leader key sequences, mouse emulation */
+/* colemak-DH */
+MAKE_RETRO_HRM(Crhml_r, &kp, &kp, N4, KEYS_R THUMBS) 
+MAKE_RETRO_HRM(Crhml_s, &kp, &kp, N5, KEYS_R THUMBS) 
+MAKE_RETRO_HRM(Crhml_t, &kp, &kp, N6, KEYS_R THUMBS) 
+
+
 /* Combos, leader key sequences, mouse emulation */
 
 #include "mouse.dtsi"
@@ -233,6 +263,22 @@ ZMK_TAP_DANCE(ldr_fn_tab_tap,
 
 SIMPLE_MORPH(tab_morph, SFT, &kp TAB, &smart_mouse)
 
+ZMK_HOLD_TAP(aero_back,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&aero_back_morph>;
+)
+SIMPLE_MORPH(aero_back_morph, SFT, &kp LA(J), &sk RG(LC(LALT)))
+
+ZMK_HOLD_TAP(aero_fwd,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&aero_fwd_morph>;
+)
+SIMPLE_MORPH(aero_fwd_morph, SFT, &kp LA(L), &sk RG(LC(LALT)))
+
 // Sticky shift + leader
 /* ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;) */
 
@@ -253,7 +299,29 @@ SIMPLE_MORPH(tab_morph, SFT, &kp TAB, &smart_mouse)
 #define AERO_FWD        &aero_fwd LA(SQT) LA(L)
 #define AERO_BACK       &aero_back LA(H) LA(J)
 #define Q_ESC           &q_esc ESC 0
-#define F12_ALT_MEH     &f12_alt_meh LALT 0
+#define F12_ALT_MEH     &f12_alt_meh LALT F12
+
+// qwerty numeric auto-shifts
+#define Q_ASN_X &asn N1 X
+#define Q_ASN_C &asn N2 C
+#define Q_ASN_V &asn N3 V
+#define Q_ASN_S &asn N4 S
+#define Q_ASN_D &asn N5 D
+#define Q_ASN_F &asn N6 F
+#define Q_ASN_W &asn N7 W
+#define Q_ASN_E &asn N8 E
+#define Q_ASN_R &asn N9 R
+
+// colemak-DH numeric auto-shifts
+#define C_ASN_X &asn N1 X
+#define C_ASN_C &asn N2 C
+#define C_ASN_D &asn N3 D
+#define C_ASN_R &asn N4 R
+#define C_ASN_S &asn N5 S
+#define C_ASN_T &asn N6 T
+#define C_ASN_W &asn N7 W
+#define C_ASN_F &asn N8 F
+#define C_ASN_P &asn N9 P
 
 /* Keymap */
 
@@ -268,27 +336,27 @@ ZMK_CONDITIONAL_LAYER(Sys,NAV NUM, SYS)  // NAV + NUM --> SYS
 
 // QWERTY
 ZMK_BASE_LAYER(Base,
-//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   Q_ESC         AS(W)         AS(E)          AS(R)         AS(T)       ,   AS(Y)         AS(U)         AS(I)         AS(O)         AS(P)       ,
-//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  AS(G)        ,   AS(H)         &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SQT,
-//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   AS(Z)         AS(X)         AS(C)         AS(V)         AS(B)        ,   AS(N)         AS(M)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
-//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                             &lt_spc NAV 0 LDR_FN_TAB   ,   SYM_DEL       SMART_NUM                                              
-//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          
+//╭─────────────┬─────────────┬───────────────┬───────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+   Q_ESC         Q_ASN_W       Q_ASN_E          Q_ASN_R         AS(T)       ,   AS(Y)         AS(U)         AS(I)         AS(O)         AS(P)       ,
+//├─────────────┼─────────────┼───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   &hml LGUI A  &rhml_s LALT S &rhml_d LCTRL D &rhml_f LSHFT F  AS(G)       ,   AS(H)         &hmr RSHFT J  &hmr LCTRL K  &hmr LALT L  &hmr LGUI SQT,
+//├─────────────┼─────────────┼───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   AS(Z)         Q_ASN_X        Q_ASN_C          Q_ASN_V        AS(B)       ,   AS(N)         AS(M)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
+//╰─────────────┼─────────────┴───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                                 &lt_spc NAV 0 LDR_FN_TAB   ,   SYM_DEL       SMART_NUM                                              
+//                                            ╰───────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          
 )
 
 ZMK_BASE_LAYER(Colemak,
-//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   Q_ESC          AS(W)         AS(F)         AS(P)         AS(B)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     ,
-//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  AS(G)       ,   AS(M)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O ,
-//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    AS(Z)         AS(X)         AS(C)         AS(D)         AS(V)       ,   AS(K)         AS(H)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
-//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                             &lt_spc NAV 0  LDR_FN_TAB  ,   SYM_DEL        SMART_NUM
-//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+//╭─────────────┬───────────────┬──────────────────┬────────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+   Q_ESC          C_ASN_W          C_ASN_F            C_ASN_P         AS(B)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     ,
+//├─────────────┼───────────────┼──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &hml LGUI A  &Crhml_r LALT R  &Crhml_s LCTRL S  &Crhml_t LSHFT T  AS(G)       ,   AS(M)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O ,
+//├─────────────┼───────────────┼──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    AS(Z)         C_ASN_X          C_ASN_C            C_ASN_D         AS(V)       ,   AS(K)         AS(H)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  ,
+//╰─────────────┼───────────────┴──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                                      &lt_spc NAV 0   LDR_FN_TAB  ,   SYM_DEL        SMART_NUM
+//                                                 ╰────────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
 ZMK_BASE_LAYER(Nav,
@@ -341,7 +409,7 @@ ZMK_BASE_LAYER(Fn,
 
 ZMK_BASE_LAYER(Sys,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                               _BT_SEL_KEYS_                            ,    &tog 1           ___           ___           ___           ___        ,
+                               _BT_SEL_KEYS_                            ,    &tog 1           ___           ___           ___           ___     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    ___           ___           ___           ___           &bootloader  ,    &bootloader   ___           ___           ___           ___        ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
