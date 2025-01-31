@@ -76,9 +76,9 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define MAKE_RETRO_HRM(NAME, HOLD, TAP, RETRO, TRIGGER_POS) \
     ZMK_HOLD_TAP(NAME, \
          flavor = "balanced"; \
-         tapping-term-ms = <200>; \
-         quick-tap-ms = <200>; \
-         require-prior-idle-ms = <125>; \
+         tapping-term-ms = <280>; \
+         quick-tap-ms = <175>; \
+         require-prior-idle-ms = <150>; \
          bindings = <HOLD>, <TAP>; \
          retro-tap; \
          retro-tap-behavior = "key_press"; \
@@ -160,7 +160,7 @@ ZMK_HOLD_TAP(smart_num,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&num_morph>;
 )
-SIMPLE_MORPH(num_morph, SFT, &kp RET, &num_word NUM)
+SIMPLE_MORPH(num_morph, CTL, &kp RET, &num_word NUM)
 
 // tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
 #define SMART_COMMA &smart_comma SEMICOLON 0
@@ -258,10 +258,16 @@ ZMK_HOLD_TAP(ldr_fn_tab,
 
 ZMK_TAP_DANCE(ldr_fn_tab_tap,
     tapping-term-ms = <250>;
-    bindings = <&tab_morph>, <&leader>;
+    bindings = <&kp TAB>, <&leader>;
 )
 
-SIMPLE_MORPH(tab_morph, SFT, &kp TAB, &smart_mouse)
+ZMK_HOLD_TAP(sym_del,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&bksp_morph>;
+)
+SIMPLE_MORPH(bksp_morph, SFT, &kp BSPC, &smart_mouse)
 
 ZMK_HOLD_TAP(aero_back,
     flavor = "balanced";
@@ -294,7 +300,7 @@ SIMPLE_MORPH(aero_fwd_morph, SFT, &kp LA(L), &sk RG(LC(LALT)))
 #define GUI_RAY_SWITCH  &gui_ray_switch LGUI 0
 #define LDR_FN_TAB      &ldr_fn_tab FN 0
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
-#define SYM_DEL         &lt SYM BSPC
+#define SYM_DEL         &sym_del SYM 0
 #define HMR_J_SSHFT     &s_hmr 0 J
 #define AERO_FWD        &aero_fwd LA(SQT) LA(L)
 #define AERO_BACK       &aero_back LA(H) LA(J)
@@ -365,7 +371,7 @@ ZMK_BASE_LAYER(Nav,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp LGUI        &kp LALT      &kp LCTRL     &kp LSHFT   &kp LG(LS(C)),   &kp LG(LBKT)    &kp LEFT      &kp DOWN     &kp RIGHT   &kp LG(RBKT) ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &sk LGUI        &sk LALT      &sk LCTRL     &sk LSHFT    &kp LC(TAB) ,   &kp LG(LEFT) &kp LA(LEFT)  &kp LS(LG(J)) &kp LA(RIGHT) &kp LG(RIGHT),
+   &sk LGUI        &sk LALT      &sk LCTRL     &sk LSHFT   &kp LG(LS(O)),   &kp LG(LEFT) &kp LA(LEFT)  &kp LS(LG(J)) &kp LA(RIGHT) &kp LG(RIGHT),
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                              ___           ___          ,    &swapper           ___                                              
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          

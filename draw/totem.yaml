@@ -2,9 +2,9 @@ layout: {qmk_keyboard: totem}
 layers:
   Base:
     - {t: Q, h: Esc}
-    - {t: W, h: Sft+W}
-    - {t: E, h: Sft+E}
-    - {t: R, h: Sft+R}
+    - {t: W, h: '7'}
+    - {t: E, h: '8'}
+    - {t: R, h: '9'}
     - {t: T, h: Sft+T}
     - {t: Y, h: Sft+Y}
     - {t: U, h: Sft+U}
@@ -23,9 +23,9 @@ layers:
     - {t: '''', h: '$$mdi:apple-keyboard-command$$', s: '"'}
     - {t: Pane back, h: Desk back}
     - {t: Z, h: Sft+Z}
-    - {t: X, h: Sft+X}
-    - {t: C, h: Sft+C}
-    - {t: V, h: Sft+V}
+    - {t: X, h: '1'}
+    - {t: C, h: '2'}
+    - {t: V, h: '3'}
     - {t: B, h: Sft+B}
     - {t: N, h: Sft+N}
     - {t: M, h: Sft+M}
@@ -36,14 +36,14 @@ layers:
     - {t: Raycast, h: Hyper, s: Paste}
     - {t: '$$mdi:keyboard-space$$', h: Nav, s: Sentence}
     - {t: Tab, h: Fn, s: Leader}
-    - {t: '$$mdi:backspace$$', h: Sym}
+    - {t: '$$mdi:backspace$$', h: Sym, s: '$$mdi:mouse-scroll-wheel$$'}
     - Smart Num
     - {t: F12, h: Alt, s: Meh}
   Colemak:
     - {t: Q, h: Esc}
-    - {t: W, h: Sft+W}
-    - {t: F, h: Sft+F}
-    - {t: P, h: Sft+P}
+    - {t: W, h: '7'}
+    - {t: F, h: '8'}
+    - {t: P, h: '9'}
     - {t: B, h: Sft+B}
     - {t: J, h: Sft+J}
     - {t: L, h: Sft+L}
@@ -62,9 +62,9 @@ layers:
     - {t: O, h: '$$mdi:apple-keyboard-command$$'}
     - {t: Pane back, h: Desk back}
     - {t: Z, h: Sft+Z}
-    - {t: X, h: Sft+X}
-    - {t: C, h: Sft+C}
-    - {t: D, h: Sft+D}
+    - {t: X, h: '1'}
+    - {t: C, h: '2'}
+    - {t: D, h: '3'}
     - {t: V, h: Sft+V}
     - {t: K, h: Sft+K}
     - {t: H, h: Sft+H}
@@ -75,7 +75,7 @@ layers:
     - {t: Raycast, h: Hyper, s: Paste}
     - {t: '$$mdi:keyboard-space$$', h: Nav, s: Sentence}
     - {t: Tab, h: Fn, s: Leader}
-    - {t: '$$mdi:backspace$$', h: Sym}
+    - {t: '$$mdi:backspace$$', h: Sym, s: '$$mdi:mouse-scroll-wheel$$'}
     - Smart Num
     - {t: F12, h: Alt, s: Meh}
   Nav:

@@ -54,6 +54,9 @@
 <svg id="mdi:keyboard-tab">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-keyboard-tab" viewBox="0 0 24 24"><path d="M20,18H22V6H20M11.59,7.41L15.17,11H1V13H15.17L11.59,16.58L13,18L19,12L13,6L11.59,7.41Z" /></svg>
 </svg>
+<svg id="mdi:mouse-scroll-wheel">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-mouse-scroll-wheel" viewBox="0 0 24 24"><path d="M11 1.07C7.05 1.56 4 4.92 4 9H11V7.73C10.4 7.39 10 6.74 10 6V4C10 3.26 10.4 2.61 11 2.27V1.07M13 9V7.73C13.6 7.39 14 6.74 14 6V4C14 3.26 13.6 2.61 13 2.27V1.07C16.94 1.56 20 4.92 20 9H13M4 15C4 17.12 4.84 19.16 6.34 20.66C7.84 22.16 9.88 23 12 23C14.12 23 16.16 22.16 17.66 20.66C19.16 19.16 20 17.12 20 15V11H4V15M13 6V4C13 3.45 12.55 3 12 3C11.45 3 11 3.45 11 4V6C11 6.55 11.45 7 12 7C12.55 7 13 6.55 13 6Z" /></svg>
+</svg>
 <svg id="mdi:play-pause">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-play-pause" viewBox="0 0 24 24"><path d="M3,5V19L11,12M13,19H16V5H13M18,5V19H21V5" /></svg>
 </svg>
@@ -469,17 +472,17 @@ path.combo {
 <g transform="translate(206, 88) rotate(-4.0)" class="key keypos-1">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">W</text>
-<text x="0" y="34" class="key hold">Sft+W</text>
+<text x="0" y="34" class="key hold">7</text>
 </g>
 <g transform="translate(303, 40)" class="key keypos-2">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">E</text>
-<text x="0" y="34" class="key hold">Sft+E</text>
+<text x="0" y="34" class="key hold">8</text>
 </g>
 <g transform="translate(387, 80)" class="key keypos-3">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">R</text>
-<text x="0" y="34" class="key hold">Sft+R</text>
+<text x="0" y="34" class="key hold">9</text>
 </g>
 <g transform="translate(472, 92)" class="key keypos-4">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
@@ -577,17 +580,17 @@ path.combo {
 <g transform="translate(217, 248) rotate(-4.0)" class="key keypos-22">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">X</text>
-<text x="0" y="34" class="key hold">Sft+X</text>
+<text x="0" y="34" class="key hold">1</text>
 </g>
 <g transform="translate(303, 200)" class="key keypos-23">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">C</text>
-<text x="0" y="34" class="key hold">Sft+C</text>
+<text x="0" y="34" class="key hold">2</text>
 </g>
 <g transform="translate(387, 240)" class="key keypos-24">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">V</text>
-<text x="0" y="34" class="key hold">Sft+V</text>
+<text x="0" y="34" class="key hold">3</text>
 </g>
 <g transform="translate(472, 252)" class="key keypos-25">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
@@ -655,7 +658,8 @@ path.combo {
 <use href="#mdi:backspace" xlink:href="#mdi:backspace" x="-13" y="-13" height="26" width="26.0" class="key tap glyph mdi:backspace"/>
 <a href="#Sym">
 <text x="0" y="34" class="key hold layer-activator">Sym</text>
-</a></g>
+</a><use href="#mdi:mouse-scroll-wheel" xlink:href="#mdi:mouse-scroll-wheel" x="-8" y="-34" height="16" width="16.0" class="key shifted glyph mdi:mouse-scroll-wheel"/>
+</g>
 <g transform="translate(758, 350) rotate(-15.0)" class="key keypos-36">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">
@@ -681,17 +685,17 @@ path.combo {
 <g transform="translate(206, 88) rotate(-4.0)" class="key keypos-1">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">W</text>
-<text x="0" y="34" class="key hold">Sft+W</text>
+<text x="0" y="34" class="key hold">7</text>
 </g>
 <g transform="translate(303, 40)" class="key keypos-2">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">F</text>
-<text x="0" y="34" class="key hold">Sft+F</text>
+<text x="0" y="34" class="key hold">8</text>
 </g>
 <g transform="translate(387, 80)" class="key keypos-3">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">P</text>
-<text x="0" y="34" class="key hold">Sft+P</text>
+<text x="0" y="34" class="key hold">9</text>
 </g>
 <g transform="translate(472, 92)" class="key keypos-4">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
@@ -789,17 +793,17 @@ path.combo {
 <g transform="translate(217, 248) rotate(-4.0)" class="key keypos-22">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">X</text>
-<text x="0" y="34" class="key hold">Sft+X</text>
+<text x="0" y="34" class="key hold">1</text>
 </g>
 <g transform="translate(303, 200)" class="key keypos-23">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">C</text>
-<text x="0" y="34" class="key hold">Sft+C</text>
+<text x="0" y="34" class="key hold">2</text>
 </g>
 <g transform="translate(387, 240)" class="key keypos-24">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">D</text>
-<text x="0" y="34" class="key hold">Sft+D</text>
+<text x="0" y="34" class="key hold">3</text>
 </g>
 <g transform="translate(472, 252)" class="key keypos-25">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
@@ -867,7 +871,8 @@ path.combo {
 <use href="#mdi:backspace" xlink:href="#mdi:backspace" x="-13" y="-13" height="26" width="26.0" class="key tap glyph mdi:backspace"/>
 <a href="#Sym">
 <text x="0" y="34" class="key hold layer-activator">Sym</text>
-</a></g>
+</a><use href="#mdi:mouse-scroll-wheel" xlink:href="#mdi:mouse-scroll-wheel" x="-8" y="-34" height="16" width="16.0" class="key shifted glyph mdi:mouse-scroll-wheel"/>
+</g>
 <g transform="translate(758, 350) rotate(-15.0)" class="key keypos-36">
 <rect rx="4" ry="4" x="-41" y="-38" width="82" height="77" class="key"/>
 <text x="0" y="0" class="key tap">
