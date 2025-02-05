@@ -275,7 +275,7 @@ ZMK_HOLD_TAP(aero_back,
 )
 ZMK_TAP_DANCE(aero_back_morph,
     tapping-term-ms = <250>;
-    bindings = <&sk LCTRL>, <&kp RG(LC(LA(LALT)))>;
+    bindings = <&sk LCTRL>, <&sk RG(LC(LA(LALT)))>;
 )
 /* SIMPLE_MORPH(aero_back_morph, SFT, &sk LCTRL, &sk RG(LC(LALT))) */
 
@@ -287,7 +287,7 @@ ZMK_HOLD_TAP(aero_fwd,
 )
 ZMK_TAP_DANCE(aero_fwd_morph,
     tapping-term-ms = <250>;
-    bindings = <&sk LSHFT>, <&kp RG(LC(LA(LALT)))>;
+    bindings = <&sk LSHFT>, <&sk RG(LC(LA(LALT)))>;
 )
 /* SIMPLE_MORPH(aero_fwd_morph, SFT, &sk LSHFT, &sk RG(LC(LALT))) */
 
