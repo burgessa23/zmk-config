@@ -273,7 +273,11 @@ ZMK_HOLD_TAP(aero_back,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&aero_back_morph>;
 )
-SIMPLE_MORPH(aero_back_morph, SFT, &kp LA(J), &sk RG(LC(LALT)))
+ZMK_TAP_DANCE(aero_back_morph,
+    tapping-term-ms = <250>;
+    bindings = <&sk LCTRL>, <&kp RG(LC(LA(LALT)))>;
+)
+/* SIMPLE_MORPH(aero_back_morph, SFT, &sk LCTRL, &sk RG(LC(LALT))) */
 
 ZMK_HOLD_TAP(aero_fwd,
     flavor = "balanced";
@@ -281,7 +285,11 @@ ZMK_HOLD_TAP(aero_fwd,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&aero_fwd_morph>;
 )
-SIMPLE_MORPH(aero_fwd_morph, SFT, &kp LA(L), &sk RG(LC(LALT)))
+ZMK_TAP_DANCE(aero_fwd_morph,
+    tapping-term-ms = <250>;
+    bindings = <&sk LSHFT>, <&kp RG(LC(LA(LALT)))>;
+)
+/* SIMPLE_MORPH(aero_fwd_morph, SFT, &sk LSHFT, &sk RG(LC(LALT))) */
 
 // Sticky shift + leader
 /* ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;) */
@@ -300,8 +308,8 @@ SIMPLE_MORPH(aero_fwd_morph, SFT, &kp LA(L), &sk RG(LC(LALT)))
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &sym_del SYM 0
 #define HMR_J_SSHFT     &s_hmr 0 J
-#define AERO_FWD        &aero_fwd LA(SQT) LA(L)
-#define AERO_BACK       &aero_back LA(H) LA(J)
+#define AERO_FWD        &aero_fwd LSHFT 0
+#define AERO_BACK       &aero_back LCTRL 0
 #define Q_ESC           &q_esc ESC 0
 #define F12_ALT_MEH     &f12_alt_meh LALT F12
 #define MEH(keycode)    &kp LS(LA(LG(LC(keycode))))
