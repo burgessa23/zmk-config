@@ -34,6 +34,7 @@
 
 &sl {  // sticky-layer config
     ignore-modifiers;          // allow chording sticky mods & layers
+    release-after-ms = <2000>;
 };
 
 &lt {  // layer-tap config
@@ -109,7 +110,26 @@ MAKE_RETRO_HRM(rhml_f, &kp, &kp, N6, KEYS_R THUMBS)
 #include "leader.dtsi"
 
 
+/* Magic-shift & auto-layers */
+// Tap: repeat after alpha, else sticky-shift |
+// Shift + tap/ double-tap: caps-word | Hold: shift.
+#define MAGIC_SHIFT &magic_shift LSHFT 0
+ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
+             flavor = "balanced"; tapping-term-ms = <200>;
+             quick-tap-ms = <QUICK_TAP_MS>;)
+ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_repeat>, <&caps_word>;
+              mods = <(MOD_LSFT)>;)
 
+
+
+ZMK_ADAPTIVE_KEY(
+    shift_repeat, bindings = <&sk LSHFT>;
+    repeat {
+      trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
+      bindings = <&key_repeat>;
+      max-prior-idle-ms = <1200>;
+      strict-modifiers;
+    };)
 
 
 /* Nav cluster */
@@ -275,7 +295,7 @@ ZMK_HOLD_TAP(aero_back,
 )
 ZMK_TAP_DANCE(aero_back_morph,
     tapping-term-ms = <250>;
-    bindings = <&sk LCTRL>, <&sk RG(LC(LA(LALT)))>;
+    bindings = <&sk LGUI>, <&sk LG(LC(LALT))>;
 )
 /* SIMPLE_MORPH(aero_back_morph, SFT, &sk LCTRL, &sk RG(LC(LALT))) */
 
@@ -287,7 +307,7 @@ ZMK_HOLD_TAP(aero_fwd,
 )
 ZMK_TAP_DANCE(aero_fwd_morph,
     tapping-term-ms = <250>;
-    bindings = <&sk LSHFT>, <&sk RG(LC(LA(LALT)))>;
+    bindings = <&sk LSHFT>, <&sk LG(LC(LALT))>;
 )
 /* SIMPLE_MORPH(aero_fwd_morph, SFT, &sk LSHFT, &sk RG(LC(LALT))) */
 
@@ -303,13 +323,13 @@ ZMK_TAP_DANCE(aero_fwd_morph,
 #define HINT            &kp LG(LA(H))
 #define ESC_SWITCH_COPY &esc_switch_copy RG(LC(LALT)) 0
 // #define GUI_RAY_SWITCH  &gui_ray_switch RG(LC(LALT)) 0
-#define GUI_RAY_SWITCH  &gui_ray_switch LGUI 0
+#define GUI_RAY_SWITCH  &gui_ray_switch LCTRL 0
 #define LDR_FN_TAB      &ldr_fn_tab FN 0
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &sym_del SYM 0
 #define HMR_J_SSHFT     &s_hmr 0 J
 #define AERO_FWD        &aero_fwd LSHFT 0
-#define AERO_BACK       &aero_back LCTRL 0
+#define AERO_BACK       &aero_back LGUI 0
 #define Q_ESC           &q_esc ESC 0
 #define F12_ALT_MEH     &f12_alt_meh LALT F12
 #define MEH(keycode)    &kp LS(LA(LG(LC(keycode))))
@@ -340,7 +360,7 @@ ZMK_TAP_DANCE(aero_fwd_morph,
 
 ZMK_CONDITIONAL_LAYER(Sys,NAV NUM, SYS)  // NAV + NUM --> SYS
 // ZMK_CONDITIONAL_LAYER(Colemak, SYM FN,  COLEMAK)  // SYM + FN --> COLEMAK
-ZMK_CONDITIONAL_LAYER(Aero,NAV FN, AERO)  // NAV + FN --> AERO
+// ZMK_CONDITIONAL_LAYER(Aero,NAV FN, AERO)  // NAV + FN --> AERO
 
 
 #ifndef ZMK_BASE_LAYER

@@ -48,5 +48,5 @@ ZMK_COMBO(fwd,   &kp LG(RBKT), RB5 RM4,     DEF,          COMBO_TERM_SLOW,      
 ZMK_COMBO(soff,  &soft_off,    LB5 RB5,     SYS,                  COMBO_TERM_VERY_SLOW, COMBO_IDLE_FAST)
 ZMK_COMBO(ldr,   &leader,      LM2 LM1,     DEF NAV NUM,  COMBO_TERM_SLOW,      COMBO_IDLE_FAST, LS(LCTRL),    KEYS_R)
 ZMK_COMBO(cpw,   &caps_word,   LM1 RM1,     DEF NUM,      COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
-ZMK_COMBO(aero,  &sl AERO,     LM0 RM0,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(aero,  &sl 7,     LH0 RH0,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 
