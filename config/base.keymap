@@ -114,6 +114,7 @@ MAKE_RETRO_HRM(rhml_f, &kp, &kp, N6, KEYS_R THUMBS)
 // Tap: repeat after alpha, else sticky-shift |
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
+
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
              flavor = "balanced"; tapping-term-ms = <200>;
              quick-tap-ms = <QUICK_TAP_MS>;)
@@ -270,6 +271,13 @@ ZMK_TAP_DANCE(gui_ray_switch_dance,
 SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 
 
+ZMK_HOLD_TAP(f12_alt_meh,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+)
+
 ZMK_HOLD_TAP(ldr_fn_tab,
     flavor = "balanced";
     tapping-term-ms = <280>;
@@ -287,29 +295,29 @@ ZMK_HOLD_TAP(sym_del,
 )
 SIMPLE_MORPH(bksp_morph, SFT, &kp BSPC, &smart_mouse)
 
-ZMK_HOLD_TAP(aero_back,
+ZMK_HOLD_TAP(outer_left,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&aero_back_morph>;
+    bindings = <&kp>, <&outer_left_dance>;
 )
-ZMK_TAP_DANCE(aero_back_morph,
+ZMK_TAP_DANCE(outer_left_dance,
     tapping-term-ms = <250>;
     bindings = <&sk LGUI>, <&sk LG(LC(LALT))>;
 )
-/* SIMPLE_MORPH(aero_back_morph, SFT, &sk LCTRL, &sk RG(LC(LALT))) */
+// SIMPLE_MORPH(outer_left_morph, SFT, &sk LGUI, &kp RG(LC(LALT)))
 
-ZMK_HOLD_TAP(aero_fwd,
+ZMK_HOLD_TAP(outer_right,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&aero_fwd_morph>;
+    bindings = <&kp>, <&outer_right_dance>;
 )
-ZMK_TAP_DANCE(aero_fwd_morph,
+ZMK_TAP_DANCE(outer_right_dance,
     tapping-term-ms = <250>;
     bindings = <&sk LSHFT>, <&sk LG(LC(LALT))>;
 )
-/* SIMPLE_MORPH(aero_fwd_morph, SFT, &sk LSHFT, &sk RG(LC(LALT))) */
+// SIMPLE_MORPH(outer_right_morph, GUI, &sk LSHFT, &kp RG(LC(LALT)))
 
 // Sticky shift + leader
 /* ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;) */
@@ -322,17 +330,15 @@ ZMK_TAP_DANCE(aero_fwd_morph,
 #define GRID            &kp LC(LG(LA(G)))
 #define HINT            &kp LG(LA(H))
 #define ESC_SWITCH_COPY &esc_switch_copy RG(LC(LALT)) 0
-// #define GUI_RAY_SWITCH  &gui_ray_switch RG(LC(LALT)) 0
 #define GUI_RAY_SWITCH  &gui_ray_switch LCTRL 0
 #define LDR_FN_TAB      &ldr_fn_tab FN 0
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &sym_del SYM 0
 #define HMR_J_SSHFT     &s_hmr 0 J
-#define AERO_FWD        &aero_fwd LSHFT 0
-#define AERO_BACK       &aero_back LGUI 0
+#define OUTER_LEFT      &outer_left LGUI 0
+#define OUTER_RIGHT     &outer_right LSHFT 0
 #define Q_ESC           &q_esc ESC 0
 #define F12_ALT_MEH     &f12_alt_meh LALT F12
-#define MEH(keycode)    &kp LS(LA(LG(LC(keycode))))
 
 // qwerty numeric auto-shifts
 #define Q_ASN_X &asn N1 X
@@ -381,16 +387,16 @@ ZMK_BASE_LAYER(Base,
 //                                            ╰───────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          
 )
 
-/* ZMK_BASE_LAYER(Colemak, */
-/* //╭─────────────┬───────────────┬──────────────────┬────────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ */
-/*    Q_ESC          C_ASN_W          C_ASN_F            C_ASN_P         AS(B)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     , */
-/* //├─────────────┼───────────────┼──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
-/*     &hml LGUI A  &Crhml_r LALT R  &Crhml_s LCTRL S  &Crhml_t LSHFT T  AS(G)       ,   AS(M)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O , */
-/* //├─────────────┼───────────────┼──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
-/*     AS(Z)         C_ASN_X          C_ASN_C            C_ASN_D         AS(V)       ,   AS(K)         AS(H)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  , */
-/* //╰─────────────┼───────────────┴──────────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ */
-/*                                                       &lt_spc NAV 0   LDR_FN_TAB  ,   SYM_DEL        SMART_NUM */
-/* //                                                 ╰────────────────┴─────────────╯ ╰─────────────┴─────────────╯ */
+/* ZMK_BASE_LAYER(Base, */
+/* //╭─────────────┬───────────────┬───────────────┬────────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ */
+/*    Q_ESC          C_ASN_W          C_ASN_F         C_ASN_P         AS(B)       ,   AS(J)         AS(L)         AS(U)         AS(Y)         AS(SQT)     , */
+/* //├─────────────┼───────────────┼───────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
+/*     &hml LGUI A   &hml LALT R     &hml LCTRL S      &hml LSHFT T   AS(G)       ,   AS(M)         &hmr RSHFT N  &hmr LCTRL E  &hmr LALT I   &hmr LGUI O , */
+/* //├─────────────┼───────────────┼───────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
+/*     AS(Z)         C_ASN_X          C_ASN_C         C_ASN_D         AS(V)       ,   AS(K)         AS(H)         SMART_COMMA   SMART_DOT    Q_EXCL_SLSH  , */
+/* //╰─────────────┼───────────────┴───────────────┼────────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯ */
+/*                                                    &lt_spc NAV 0   LDR_FN_TAB  ,   SYM_DEL        SMART_NUM */
+/* //                                              ╰────────────────┴─────────────╯ ╰─────────────┴─────────────╯ */
 /* ) */
 
 ZMK_BASE_LAYER(Nav,
@@ -469,9 +475,9 @@ ZMK_BASE_LAYER(Aero,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬───────────────┬─────────────┬─────────────╮
    &kp ESC         &kp LA(N7)     &kp LA(N8)   &kp LA(N9)   &kp LA(FSLH),    ___          &kp LA(LS(J)) &kp LA(LS(TAB)) &kp LA(LS(L))         ___ ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
-     MEH(N4)       &kp LA(N4)     &kp LA(N5)  &kp LA(N6)   &kp LA(COMMA),   ___          &kp LA(J)     &kp LA(LS(TAB)) &kp LA(L)              ___ ,
+ &kp LC(LA(LG(N4)))  &kp LA(N4)   &kp LA(N5)  &kp LA(N6)   &kp LA(COMMA),   ___          &kp LA(J)     &kp LA(LS(TAB)) &kp LA(L)              ___ ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
-      MEH(N5)      &kp LA(N1)    &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),    ___          MEH(J)             ___        MEH(L)             ___    ,
+ &kp LC(LA(LG(N5)))  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),    ___          DSK_PREV           ___        DSK_NEXT           ___    ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┴───────────────────────────╯
                                              ___           ___          ,   ___               ___                                              
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          

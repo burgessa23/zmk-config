@@ -43,13 +43,6 @@ ZMK_TAP_DANCE(q_excl_slsh_dance,
     bindings = <&kp SLASH>, <&kp EXCL>;
 )
 
-ZMK_HOLD_TAP(f12_alt_meh,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&kp>;
-)
-
 ZMK_BEHAVIOR(asn, hold_tap,
     flavor = "tap-preferred";
     tapping-term-ms = <250>;
