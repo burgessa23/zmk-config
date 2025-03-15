@@ -2,9 +2,9 @@ layout: {qmk_keyboard: totem}
 layers:
   Base:
     - {t: Q, h: Esc}
-    - {t: W, h: '7'}
-    - {t: E, h: '8'}
-    - {t: R, h: '9'}
+    - {t: W, h: Sft+W}
+    - {t: E, h: Sft+E}
+    - {t: R, h: Sft+R}
     - {t: T, h: Sft+T}
     - {t: Y, h: Sft+Y}
     - {t: U, h: Sft+U}
@@ -15,28 +15,28 @@ layers:
     - {t: S, h: '$$mdi:apple-keyboard-option$$'}
     - {t: D, h: '$$mdi:apple-keyboard-control$$'}
     - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
-    - {t: G, h: Sft+G}
-    - {t: H, h: Sft+H}
+    - {t: G, h: 'Gui+Ctl+$$mdi:apple-keyboard-option$$'}
+    - {t: H, h: 'Gui+Ctl+$$mdi:apple-keyboard-option$$'}
     - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
     - {t: K, h: '$$mdi:apple-keyboard-control$$'}
     - {t: L, h: '$$mdi:apple-keyboard-option$$'}
     - {t: '''', h: '$$mdi:apple-keyboard-command$$', s: '"'}
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: Z, h: Sft+Z}
-    - {t: X, h: '1'}
-    - {t: C, h: '2'}
-    - {t: V, h: '3'}
+    - {t: X, h: Sft+X}
+    - {t: C, h: Sft+C}
+    - {t: V, h: Sft+V}
     - {t: B, h: Sft+B}
     - {t: N, h: Sft+N}
     - {t: M, h: Sft+M}
     - {t: ',', h: ;, s: <}
     - {t: ., h: ':', s: '>'}
     - {t: '/ ?', s: '!'}
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
-    - {t: '$$mdi:keyboard-space$$', h: Nav, s: Sentence}
-    - {t: Tab, h: Fn, s: Leader}
-    - {t: '$$mdi:backspace$$', h: Sym, s: '$$mdi:mouse-scroll-wheel$$'}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
+    - {t: '&spc_tap', h: Nav}
+    - {t: '&ray_switch_dance', h: '$$mdi:apple-keyboard-shift$$'}
+    - {t: '$$mdi:backspace$$', h: Sym}
     - Smart Num
     - {t: F12, h: Alt, s: Meh}
   Nav:
@@ -45,11 +45,11 @@ layers:
     - Copy
     - Paste
     - Redo
-    - $$mdi:transfer-down$$
+    - $$mdi:transfer-up$$
     - HOME
     - $$mdi:arrow-up-bold$$
     - END
-    - $$mdi:transfer-up$$
+    - $$mdi:transfer-down$$
     - $$mdi:apple-keyboard-command$$
     - $$mdi:apple-keyboard-option$$
     - $$mdi:apple-keyboard-control$$
@@ -60,7 +60,7 @@ layers:
     - $$mdi:arrow-down-bold$$
     - $$mdi:arrow-right-bold$$
     - Fwd
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: '$$mdi:apple-keyboard-command$$', h: '$$mdi:gesture-tap-hold$$'}
     - {t: '$$mdi:apple-keyboard-option$$', h: '$$mdi:gesture-tap-hold$$'}
     - {t: '$$mdi:apple-keyboard-control$$', h: '$$mdi:gesture-tap-hold$$'}
@@ -71,11 +71,11 @@ layers:
     - Scroll
     - Alt+$$mdi:arrow-right-bold$$
     - Gui+$$mdi:arrow-right-bold$$
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
     - {type: held}
     - {t: '$$mdi:transfer$$', type: trans}
-    - Next Win
+    - Ctl+Alt+Gui+$$mdi:keyboard-tab$$
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: F12, h: Alt, s: Meh}
   Sym:
@@ -99,7 +99,7 @@ layers:
     - $$mdi:arrow-down-bold$$
     - $$mdi:arrow-right-bold$$
     - Ctl+$$mdi:arrow-down-bold$$
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: '[', right: '{'}
     - {t: '!', s: '?'}
     - '@'
@@ -110,8 +110,8 @@ layers:
     - '{ }'
     - Word fwd
     - Undo
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
     - (
     - )
     - {type: held}
@@ -138,7 +138,7 @@ layers:
     - $$mdi:apple-keyboard-control$$
     - $$mdi:apple-keyboard-option$$
     - $$mdi:apple-keyboard-command$$
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: '`', h: Sft+`, s: '~'}
     - {t: '1', h: Sft+1, s: '!'}
     - {t: '2', h: Sft+2, s: '@'}
@@ -149,8 +149,8 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
     - {t: '0', h: Sft+0, s: )}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -177,7 +177,7 @@ layers:
     - $$mdi:volume-low$$
     - Next Desk
     - Gui+Alt+H
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - F10
     - F1
     - F2
@@ -188,11 +188,11 @@ layers:
     - Teams Mic
     - $$mdi:play-pause$$
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn, type: held}
+    - {type: held alternate}
     - {t: '$$mdi:transfer$$', type: trans}
-    - $$mdi:keyboard-tab$$
-    - {t: '$$mdi:transfer$$', type: trans}
+    - {type: held alternate}
     - $$mdi:volume-off$$
     - {t: F12, h: Alt, s: Meh}
   Sys:
@@ -216,7 +216,7 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -227,8 +227,8 @@ layers:
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
     - {type: held}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -255,7 +255,7 @@ layers:
     - Mouse ↓
     - Mouse →
     - Scroll ↓
-    - {t: Pane back, h: Desk back}
+    - '&outer_left'
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
@@ -266,12 +266,51 @@ layers:
     - Middle Click
     - Right Click
     - {t: '$$mdi:transfer$$', type: trans}
-    - {t: Pane fwd, h: Desk fwd}
-    - {t: Raycast, h: Hyper, s: Paste}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
     - {t: '$$mdi:transfer$$', type: trans}
     - {t: '$$mdi:transfer$$', type: trans}
     - Left Click
     - Right Click
+    - {t: F12, h: Alt, s: Meh}
+  Aero:
+    - $$mdi:keyboard-esc$$
+    - {t: Alt+7, s: Alt+&}
+    - {t: Alt+8, s: Alt+*}
+    - {t: Alt+9, s: Alt+(}
+    - {t: Alt+/, s: 'Alt+?'}
+    - Alt+Sft+J
+    - Alt+J
+    - Alt+Sft+$$mdi:keyboard-tab$$
+    - Alt+L
+    - Alt+Sft+L
+    - {t: Ctl+Alt+Gui+4, s: Ctl+Alt+Gui+$}
+    - {t: Alt+4, s: Alt+$}
+    - {t: Alt+5, s: Alt+%}
+    - {t: Alt+6, s: Alt+^}
+    - {t: 'Alt+,', s: Alt+<}
+    - {t: '$$mdi:transfer$$', type: trans}
+    - $$mdi:apple-keyboard-shift$$
+    - $$mdi:apple-keyboard-control$$
+    - $$mdi:apple-keyboard-option$$
+    - $$mdi:apple-keyboard-command$$
+    - '&outer_left'
+    - {t: Ctl+Alt+Gui+5, s: Ctl+Alt+Gui+%}
+    - {t: Alt+1, s: Alt+!}
+    - {t: Alt+2, s: Alt+@}
+    - {t: Alt+3, s: Alt+#}
+    - {t: Alt+., s: Alt+>}
+    - {t: '$$mdi:transfer$$', type: trans}
+    - Prev Desk
+    - {t: '$$mdi:transfer$$', type: trans}
+    - Next Desk
+    - {t: '$$mdi:transfer$$', type: trans}
+    - '&outer_right'
+    - {t: '&num_word', h: Fn}
+    - {t: '$$mdi:transfer$$', type: trans}
+    - {type: held}
+    - {type: held}
+    - {t: '$$mdi:transfer$$', type: trans}
     - {t: F12, h: Alt, s: Meh}
   Combos: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
@@ -354,9 +393,9 @@ combos:
   - p: [20, 31]
     k: Sleep
     l: [Combos]
-  - p: [12, 13]
-    k: Leader
-    l: [Combos]
   - p: [13, 16]
     k: $$mdi:alpha-w-box$$
+    l: [Combos]
+  - p: [34, 35]
+    k: {t: Aero, h: '$$mdi:gesture-tap-hold$$'}
     l: [Combos]

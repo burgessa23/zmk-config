@@ -17,8 +17,8 @@
         name,                                                                  \
                  LT RT                                                         \
                  LM RM                                                         \
-      OUTER_LEFT LB RB OUTER_RIGHT                                             \
-  GUI_RAY_SWITCH LH RH F12_ALT_MEH                                             \
+      OUTER_LEFT LB RB MAGIC_SHIFT                                             \
+      RAY_SWITCH LH RH F12_ALT_MEH                                             \
     )
 
 /* source keypos definitions */
