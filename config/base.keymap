@@ -146,6 +146,7 @@ ZMK_MOD_MORPH(hmr_sshft,
 
 &caps_word {  // mods deactivate caps-word, requires PR #1451
     /delete-property/ ignore-modifiers;
+    continue-list = <UNDERSCORE MINUS>;
 };
 
 &num_word {
@@ -195,7 +196,7 @@ ZMK_HOLD_TAP(smart_num,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&num_morph>;
 )
-SIMPLE_MORPH(num_morph, CTL, &num_gui, &num_word NUM)
+SIMPLE_MORPH(num_morph, GUI, &kp RET, &num_word NUM)
 ZMK_TAP_DANCE(num_gui,
     tapping-term-ms = <200>;
     bindings = <&kp RET>, <&sk LGUI>;
@@ -230,23 +231,6 @@ SIMPLE_MORPH(qexcl, SFT, &kp EXCL, &kp QMARK)
 SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
 SIMPLE_MORPH(rpar_gt, SFT, &kp RPAR, &kp GT)
 
-// tap: space | shift + tap: dot -> space -> sticky shift | hold: activate Nav layer
-ZMK_HOLD_TAP(lt_spc,
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&spc_morph>;
-)
-SIMPLE_MORPH(spc_morph, SFT, &spc_shft, &dot_spc)
-ZMK_TAP_DANCE(spc_shft,
-    tapping-term-ms = <200>;
-    bindings = <&kp SPACE>, <&sk LSHFT>;
-)
-ZMK_MACRO(dot_spc,
-    wait-ms = <0>;
-    tap-ms = <5>;
-    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
-)
 
 // tap: copy | double-tap: cut
 ZMK_TAP_DANCE(copy_cut,
@@ -274,34 +258,36 @@ ZMK_TAP_DANCE(braces,
 
 // tap: Paste | double-tap: paste buffer
 ZMK_TAP_DANCE(paste_buff,
-    tapping-term-ms = <280>;
+    tapping-term-ms = <250>;
     bindings = <&kp LG(V)>, <&kp LA(LS(C))>;
 )
 
 // hold: LGUI | tap: raycast | shift-tap: aerospace switcher | double-tap: sticky LGUI
 ZMK_HOLD_TAP(ray_switch,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
+    flavor = "hold-preferred";
+    hold-while-undecided;
+    tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&ray_switch_dance>;
 )
 ZMK_TAP_DANCE(ray_switch_dance,
     tapping-term-ms = <250>;
-    bindings = <&ray_morph>, <&sk LCTRL>;
+    bindings = <&ray_morph>, <&sk LGUI>;
 )
-SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LC(LG(A))))
+SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 
 ZMK_HOLD_TAP(f12_alt_meh,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
+    flavor = "hold-preferred";
+    hold-while-undecided;
+    tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&f12_alt_meh_dance>;
 )
 ZMK_TAP_DANCE(f12_alt_meh_dance,
     tapping-term-ms = <250>;
-    bindings = <&alt_morph>, <&sk LALT>;
+    bindings = <&alt_morph>, <&sk LSHFT>;
 )
-SIMPLE_MORPH(alt_morph, SFT, &kp F12, &sk LA(LC(LGUI)))
+SIMPLE_MORPH(alt_morph, GUI, &kp F12, &kp LA(LC(LG(A))))
 
 ZMK_HOLD_TAP(fn_tab_shift,
     flavor = "balanced";
@@ -336,7 +322,7 @@ ZMK_HOLD_TAP(outer_left,
 )
 ZMK_TAP_DANCE(outer_left_tap,
     tapping-term-ms = <280>;
-    bindings = <&sk LGUI>, <&smart_mouse>;
+    bindings = <&kp LG(LBKT)>, <&smart_mouse>;
 )
 
 ZMK_HOLD_TAP(outer_right,
@@ -347,59 +333,52 @@ ZMK_HOLD_TAP(outer_right,
 )
 ZMK_TAP_DANCE(outer_right_tap,
     tapping-term-ms = <280>;
-    bindings = <&sk LSHFT>, <&caps_word>;
+    bindings = <&kp LG(RBKT)>, <&caps_word>;
 )
 
-/* ZMK_HOLD_TAP(sft_nav_spc, */
-/*     flavor = "balanced"; */
-/*     tapping-term-ms = <250>; */
-/*     quick-tap-ms = <QUICK_TAP_MS>; */
-/*     bindings = <&kp>, <&sft_nav_spc_tap>; */
-/* ) */
-/* ZMK_TAP_DANCE(sft_nav_spc_tap, */
-/*     tapping-term-ms = <280>; */
-/*     bindings = <&kp SPACE>, <&smart_nav>; */
-/* ) */
-
 ZMK_HOLD_TAP(sft_nav_spc,
-     flavor = "balanced";
-     tapping-term-ms = <175>;
-     bindings = <&kp>, <&kp>;
-     retro-tap;
-     retro-tap-behavior = "toggle_layer";
-     retro-tap-param1 = <NAV>;
-     hold-while-undecided;
- ) 
-
-
-
-
-
-// Sticky shift + leader
-/* ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;) */
-ZMK_MACRO(tog_enter, bindings = <&tog NAV &kp RET>;)
-ZMK_MACRO(tog_esc, bindings = <&tog NAV &kp ESC>;)
-ZMK_MACRO(tog_spc, bindings = <&tog NAV &kp SPACE>;)
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&sft_nav_spc_tap>;
+)
+ZMK_TAP_DANCE(sft_nav_spc_tap,
+    tapping-term-ms = <225>;
+    bindings = <&kp SPACE>, <&spc_morph>;
+)
+SIMPLE_MORPH(spc_morph, SFT, &spc_sft, &dot_spc)
+ZMK_MACRO(spc_sft,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&kp SPACE &sk LSHFT>;
+)
+ZMK_MACRO(dot_spc,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&kp DOT &kp SPACE &sk LSHFT>;
+)
 
 // misc aliases
 #define CANCEL          &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV        &kp LS(LA(LG(LC(TAB))))  // previous desktop
 #define DSK_NEXT        &hmr LGUI LA(LG(LC(TAB)))  // next     desktop
 #define AS(keycode)     &as LS(keycode) keycode
+#define C_NV(keycode)   &c_nv NAV keycode
 #define GRID            &kp LC(LG(LA(G)))
 #define HINT            &kp LG(LA(H))
 #define ESC_SWITCH_COPY &esc_switch_copy RG(LC(LALT)) 0
-#define RAY_SWITCH      &ray_switch LCTRL 0
+#define RAY_SWITCH      &ray_switch LGUI 0
 #define FN_TAB          &mo_kp FN TAB
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
 #define SYM_DEL         &mo_kp SYM BSPC
 #define HMR_J_SSHFT     &s_hmr 0 J
-#define OUTER_LEFT      &outer_left LGUI 0
-#define OUTER_RIGHT     &outer_right LSHFT 0
+#define OUTER_LEFT      &outer_left LCTRL 0
+#define OUTER_RIGHT     &outer_right LALT 0
 #define Q_ESC           &q_esc ESC 0
-#define F12_ALT_MEH     &f12_alt_meh LALT 0
+#define F12_ALT_MEH     &f12_alt_meh LSHFT 0
 #define Q_EXC_F1        &q_esc ESC 0
-#define SFT_NAV_SPC     &sft_nav_spc LSHFT SPACE
+// #define SFT_NAV_SPC     &sft_nav_spc LSHFT SPACE
+#define SFT_NAV_SPC     &sft_nav_spc NAV SPACE
 
 // qwerty numeric auto-shifts
 #define Q_ASN_X &asn N1 X
@@ -412,21 +391,9 @@ ZMK_MACRO(tog_spc, bindings = <&tog NAV &kp SPACE>;)
 #define Q_ASN_E &asn N8 E
 #define Q_ASN_R &asn N9 R
 
-// colemak-DH numeric auto-shifts
-/* #define C_ASN_X &asn N1 X */
-/* #define C_ASN_C &asn N2 C */
-/* #define C_ASN_D &asn N3 D */
-/* #define C_ASN_R &asn N4 R */
-/* #define C_ASN_S &asn N5 S */
-/* #define C_ASN_T &asn N6 T */
-/* #define C_ASN_W &asn N7 W */
-/* #define C_ASN_F &asn N8 F */
-/* #define C_ASN_P &asn N9 P */
-
 /* Keymap */
 
 // ZMK_CONDITIONAL_LAYER(Sys,NAV NUM, SYS)  // NAV + NUM --> SYS
-// ZMK_CONDITIONAL_LAYER(Colemak, SYM FN,  COLEMAK)  // SYM + FN --> COLEMAK
 // ZMK_CONDITIONAL_LAYER(Aero,NAV FN, AERO)  // NAV + FN --> AERO
 
 
@@ -435,7 +402,7 @@ ZMK_MACRO(tog_spc, bindings = <&tog NAV &kp SPACE>;)
       ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
 #endif
 
-
+#include "homerow_autoshift.dtsi"
 #include "qwerty.dtsi"
 // #include "niro.dtsi"
 
