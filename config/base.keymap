@@ -144,13 +144,14 @@ ZMK_MOD_MORPH(hmr_sshft,
     mods = <(MOD_LSFT)>;
 )
 
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-    continue-list = <UNDERSCORE MINUS>;
-};
+/* &caps_word {  // mods deactivate caps-word, requires PR #1451 */
+/*     /delete-property/ ignore-modifiers; */
+/*     continue-list = <UNDERSCORE MINUS>; */
+/* }; */
+
 
 &num_word {
-  continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL RSHFT LEFT RIGHT UP DOWN F7 F9>;
+  continue-list = <UNDERSCORE BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL RSHFT LEFT RIGHT UP DOWN F7 F9>;
 };
 
 &sk {
@@ -266,12 +267,13 @@ ZMK_TAP_DANCE(paste_buff,
 ZMK_HOLD_TAP(ray_switch,
     flavor = "hold-preferred";
     hold-while-undecided;
+    hold-while-undecided-linger;
     tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&ray_switch_dance>;
 )
 ZMK_TAP_DANCE(ray_switch_dance,
-    tapping-term-ms = <250>;
+    tapping-term-ms = <280>;
     bindings = <&ray_morph>, <&sk LGUI>;
 )
 SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
@@ -279,12 +281,13 @@ SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
 ZMK_HOLD_TAP(f12_alt_meh,
     flavor = "hold-preferred";
     hold-while-undecided;
+    hold-while-undecided-linger;
     tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&f12_alt_meh_dance>;
 )
 ZMK_TAP_DANCE(f12_alt_meh_dance,
-    tapping-term-ms = <250>;
+    tapping-term-ms = <280>;
     bindings = <&alt_morph>, <&sk LSHFT>;
 )
 SIMPLE_MORPH(alt_morph, GUI, &kp F12, &kp LA(LC(LG(A))))
@@ -353,11 +356,15 @@ ZMK_MACRO(spc_sft,
     bindings = <&kp SPACE &sk LSHFT>;
 )
 ZMK_MACRO(dot_spc,
-    wait-ms = <0>;
-    tap-ms = <5>;
+    wait-ms = <20>;
+    tap-ms = <20>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
-
+ZMK_MACRO(allowme,
+    wait-ms = <40>;
+    tap-ms = <40>;
+    bindings = <&kp A &kp LALT &kp LCTRL>;
+)
 // misc aliases
 #define CANCEL          &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV        &kp LS(LA(LG(LC(TAB))))  // previous desktop
@@ -473,7 +480,7 @@ ZMK_BASE_LAYER(Aero,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
  &kp LC(LA(LG(N4)))  &kp LA(N4)   &kp LA(N5)  &kp LA(N6)   &kp LA(COMMA),  &kp LG(LS(K))   &kp RSHFT    &kp LGUI       &kp LALT     &kp LCTRL     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
- &kp LC(LA(LG(N5)))  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),    ___          DSK_PREV           ___        DSK_NEXT           ___    ,
+ &kp LC(LA(LG(N5)))  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),  &kp LA(LS(F12))   DSK_PREV  &kp LA(LC(LS(TAB)))  DSK_NEXT &kp LC(LA(LG(N8))),
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┴───────────────────────────╯
                                              ___           ___          ,   ___               ___                                              
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          

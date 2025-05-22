@@ -29,6 +29,26 @@ ZMK_HOLD_TAP(cmd_d,
      hold-while-undecided;
  ) 
 
+ZMK_HOLD_TAP(sft_f,
+     flavor = "balanced";
+     tapping-term-ms = <250>;
+     bindings = <&kp>, <&kp>;
+     retro-tap;
+     retro-tap-behavior = "key_press";
+     retro-tap-param1 = <LS(F)>;
+     hold-while-undecided;
+ ) 
+
+ZMK_HOLD_TAP(sft_j,
+     flavor = "balanced";
+     tapping-term-ms = <250>;
+     bindings = <&kp>, <&kp>;
+     retro-tap;
+     retro-tap-behavior = "key_press";
+     retro-tap-param1 = <LS(J)>;
+     hold-while-undecided;
+ ) 
+
 ZMK_HOLD_TAP(cmd_k,
      flavor = "balanced";
      tapping-term-ms = <250>;
@@ -62,6 +82,8 @@ ZMK_HOLD_TAP(ctrl_sqt,
  #define CTRL_A   &ctrl_a   LCTRL A
  #define ALT_S    &alt_s    LALT S
  #define CMD_D    &cmd_d    LCMD D
+ #define SFT_F    &sft_f    LSHFT F
+ #define SFT_J    &sft_j    RSHFT J
  #define CMD_K    &cmd_k    RCMD K
  #define ALT_L    &alt_l    RALT L
  #define CTRL_SQT &ctrl_sqt RCTRL SQT

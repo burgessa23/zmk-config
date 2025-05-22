@@ -42,12 +42,14 @@ ZMK_COMBO(minus, &kp MINUS,    RT0 RT1,     DEF,          COMBO_TERM_SLOW,      
 ZMK_COMBO(under, &kp UNDER,    RM0 RM1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 
 // functional combos
-ZMK_COMBO(esc,   &kp ESC,      LT3 LT4,     DEF,          COMBO_TERM_VERY_SLOW, COMBO_IDLE_FAST)
-ZMK_COMBO(del,   &kp DEL,      RT3 RT4,     DEF,          COMBO_TERM_VERY_SLOW, COMBO_IDLE_FAST)
-ZMK_COMBO(soff,  &soft_off,    LB5 RB5,     DEF SYS       COMBO_TERM_VERY_SLOW, COMBO_IDLE_FAST)
+ZMK_COMBO(esc,   &kp ESC,      LT3 LT4,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(del,   &kp DEL,      RT3 RT4,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(soff,  &soft_off,    LB5 RB5,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(cpw,   &caps_word,   LM1 RM1,     DEF NUM,      COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(sksft, &sk LSHFT,    LM0 RM0,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(aero,  &sl 7,        LH0 RH0,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(sys,   &sl 5,        LH1 RH1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
-ZMK_COMBO(mless, &kp LC(LA(LG(N9))), LH2 RH2,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(mless, &kp LC(LA(LG(N9))), LH2 RH2,     DEF,    COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(smeh,  &sk LC(LA(LGUI)),    LB0 RB0,     DEF,    COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 
+ZMK_COMBO(allow, &allowme,     LB5 RB5,     SYS,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
