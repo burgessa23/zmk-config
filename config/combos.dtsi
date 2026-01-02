@@ -22,8 +22,8 @@ ZMK_COMBO(lbkt,  &kp LBKT,     RB1 RB2,     DEF,          COMBO_TERM_SLOW,      
 ZMK_COMBO(rbkt,  &kp RBKT,     RB2 RB3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(lbrc,  &kp LBRC,     LT2 LT3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(rbrc,  &kp RBRC,     LT2 LT1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
-ZMK_COMBO(lt,    &kp LT,       RM1 RM2,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
-ZMK_COMBO(gt,    &kp GT,       RM2 RM3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(lt,    &kp AMPS,     RM1 RM2,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(gt,    &kp ASTRK,    RB0 RB1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 
 // single symbols
 ZMK_COMBO(equal, &kp EQUAL,    LM0 LM1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
@@ -32,7 +32,7 @@ ZMK_COMBO(dllr,  &kp DLLR,     LM1 LM2,     DEF,          COMBO_TERM_SLOW,      
 ZMK_COMBO(caret, &kp CARET,    LM2 LM3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(at,    &kp AT,       LM3 LM4,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(plus,  &kp PLUS,     LB0 LB1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
-ZMK_COMBO(excl,  &kp EXCL,     RB0 RB1,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
+ZMK_COMBO(excl,  &kp EXCL,     RM2 RM3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(hash,  &kp HASH,     LB1 LB2,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(grave, &kp GRAVE,    LB2 LB3,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(tilde, &kp TILDE,    LB3 LB4,     DEF,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
@@ -52,4 +52,3 @@ ZMK_COMBO(sys,   &sl 5,        LH1 RH1,     DEF,          COMBO_TERM_SLOW,      
 ZMK_COMBO(mless, &kp LC(LA(LG(N9))), LH2 RH2,     DEF,    COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 ZMK_COMBO(smeh,  &sk LC(LA(LGUI)),    LB0 RB0,     DEF,    COMBO_TERM_SLOW,      COMBO_IDLE_FAST)
 
-ZMK_COMBO(allow, &allowme,     LB5 RB5,     SYS,          COMBO_TERM_SLOW,      COMBO_IDLE_FAST)

@@ -49,4 +49,20 @@ ZMK_BEHAVIOR(asn, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
+ZMK_BEHAVIOR(txt_nav, hold_tap,
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&kp>;
+)
 
+ZMK_BEHAVIOR(pg_nav, hold_tap,
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&kp>, <&kp>;
+)
+
+#define TXT_LFT &txt_nav LG(LEFT) LA(LEFT)
+#define TXT_RGT &txt_nav LG(RIGHT) LA(RIGHT)
+
+#define PG_UP_HOME &pg_nav PG_UP HOME
+#define PG_DN_END &pg_nav PG_DN END

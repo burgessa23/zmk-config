@@ -18,7 +18,7 @@
                  LT RT                                                         \
                  LM RM                                                         \
       OUTER_LEFT LB RB OUTER_RIGHT                                             \
-      RAY_SWITCH LH RH F12_ALT_MEH                                             \
+      RAY_SWITCH LH RH SYM_SHFT_F12                                            \
     )
 
 /* source keypos definitions */

@@ -1,81 +1,84 @@
 
 ZMK_HOLD_TAP(ctrl_a,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
      retro-tap-param1 = <LS(A)>;
-     hold-while-undecided;
  ) 
 
 ZMK_HOLD_TAP(alt_s,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
-     retro-tap-param1 = <LS(S)>;
-     hold-while-undecided;
+     retro-tap-param1 = <N4>;
  ) 
 
 ZMK_HOLD_TAP(cmd_d,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
-     retro-tap-param1 = <LS(D)>;
-     hold-while-undecided;
+     retro-tap-param1 = <N5>;
  ) 
 
 ZMK_HOLD_TAP(sft_f,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
-     retro-tap-param1 = <LS(F)>;
-     hold-while-undecided;
+     retro-tap-param1 = <N6>;
  ) 
 
 ZMK_HOLD_TAP(sft_j,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
      retro-tap-param1 = <LS(J)>;
-     hold-while-undecided;
  ) 
 
 ZMK_HOLD_TAP(cmd_k,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
      retro-tap-param1 = <LS(K)>;
-     hold-while-undecided;
  ) 
 
 ZMK_HOLD_TAP(alt_l,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
      retro-tap-param1 = <LS(L)>;
-     hold-while-undecided;
  ) 
 
 ZMK_HOLD_TAP(ctrl_sqt,
      flavor = "balanced";
-     tapping-term-ms = <250>;
+     tapping-term-ms = <200>;
      bindings = <&kp>, <&kp>;
      retro-tap;
      retro-tap-behavior = "key_press";
      retro-tap-param1 = <LS(SQT)>;
+     hold-while-undecided;
+ ) 
+
+ZMK_HOLD_TAP(sym_shft_f12,
+     flavor = "balanced";
+     tapping-term-ms = <200>;
+     bindings = <&mo>, <&f12_alt_meh_dance>;
+     retro-tap;
+     retro-tap-behavior = "key_press";
+     retro-tap-param1 = <LA(LC(LG(A)))>;
      hold-while-undecided;
  ) 
 
@@ -87,4 +90,5 @@ ZMK_HOLD_TAP(ctrl_sqt,
  #define CMD_K    &cmd_k    RCMD K
  #define ALT_L    &alt_l    RALT L
  #define CTRL_SQT &ctrl_sqt RCTRL SQT
+ #define SYM_SHFT_F12 &sym_shft_f12 SYM 0
 

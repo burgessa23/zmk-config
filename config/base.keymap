@@ -19,6 +19,7 @@
 #define SYS 5
 #define MOUSE 6
 #define AERO 7
+#define SHIFTED 8
 
 #define XXX &none
 #define ___ &trans
@@ -151,7 +152,7 @@ ZMK_MOD_MORPH(hmr_sshft,
 
 
 &num_word {
-  continue-list = <UNDERSCORE BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL RSHFT LEFT RIGHT UP DOWN F7 F9>;
+  continue-list = <UNDERSCORE BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL RSHFT LEFT RIGHT UP DOWN F7 F9 COLON>;
 };
 
 &sk {
@@ -197,7 +198,7 @@ ZMK_HOLD_TAP(smart_num,
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&num_morph>;
 )
-SIMPLE_MORPH(num_morph, GUI, &kp RET, &num_word NUM)
+SIMPLE_MORPH(num_morph, CTL, &kp RET, &num_word NUM)
 ZMK_TAP_DANCE(num_gui,
     tapping-term-ms = <200>;
     bindings = <&kp RET>, <&sk LGUI>;
@@ -241,7 +242,7 @@ ZMK_TAP_DANCE(copy_cut,
 
 // tap: q | hold / double-tap: esc                                                                                                
 ZMK_HOLD_TAP(q_esc,
-    flavor = "balanced";
+    flavor = "hold-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&q_esc_taps>;
@@ -260,7 +261,7 @@ ZMK_TAP_DANCE(braces,
 // tap: Paste | double-tap: paste buffer
 ZMK_TAP_DANCE(paste_buff,
     tapping-term-ms = <250>;
-    bindings = <&kp LG(V)>, <&kp LA(LS(C))>;
+    bindings = <&kp LG(V)>, <&kp LA(LS(SPACE))>;
 )
 
 // hold: LGUI | tap: raycast | shift-tap: aerospace switcher | double-tap: sticky LGUI
@@ -273,10 +274,10 @@ ZMK_HOLD_TAP(ray_switch,
     bindings = <&kp>, <&ray_switch_dance>;
 )
 ZMK_TAP_DANCE(ray_switch_dance,
-    tapping-term-ms = <280>;
+    tapping-term-ms = <200>;
     bindings = <&ray_morph>, <&sk LGUI>;
 )
-SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(C)))
+SIMPLE_MORPH(ray_morph, SFT, &kp LC(SPACE), &kp LA(LS(SPACE)))
 
 ZMK_HOLD_TAP(f12_alt_meh,
     flavor = "hold-preferred";
@@ -284,13 +285,19 @@ ZMK_HOLD_TAP(f12_alt_meh,
     hold-while-undecided-linger;
     tapping-term-ms = <250>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&kp>, <&f12_alt_meh_dance>;
+    bindings = <&mo>, <&f12_alt_meh_dance>;
 )
 ZMK_TAP_DANCE(f12_alt_meh_dance,
-    tapping-term-ms = <280>;
+    tapping-term-ms = <200>;
     bindings = <&alt_morph>, <&sk LSHFT>;
 )
-SIMPLE_MORPH(alt_morph, GUI, &kp F12, &kp LA(LC(LG(A))))
+SIMPLE_MORPH(alt_morph, GUI, &kp F12, &sft_sft)
+
+ZMK_MACRO(sft_sft,
+    wait-ms = <20>;
+    tap-ms = <20>;
+    bindings = <&kp LSHFT &kp LSHFT>;
+)
 
 ZMK_HOLD_TAP(fn_tab_shift,
     flavor = "balanced";
@@ -303,16 +310,25 @@ ZMK_TAP_DANCE(fn_shift,
     bindings = <&kp TAB>, <&mo FN>;
 )
 
-ZMK_HOLD_TAP(kp_kp,
-    flavor = "balanced";
-    tapping-term-ms = <280>;
+ZMK_HOLD_TAP(kp_kp_hold,
+    flavor = "hold-preferred";
+    tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&kp>, <&kp>;
+    //hold-while-undecided;
+)
+
+ZMK_HOLD_TAP(kp_kp,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&kp>;
+    hold-while-undecided;
 )
 
 ZMK_HOLD_TAP(mo_kp,
     flavor = "balanced";
-    tapping-term-ms = <280>;
+    tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
     bindings = <&mo>, <&kp>;
 )
@@ -339,11 +355,22 @@ ZMK_TAP_DANCE(outer_right_tap,
     bindings = <&kp LG(RBKT)>, <&caps_word>;
 )
 
+
+ZMK_HOLD_TAP(shift_bkp_sticky,
+    flavor = "balanced";
+    tapping-term-ms = <250>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&kp>, <&shift_tap>;
+)
+ZMK_TAP_DANCE(shift_tap,
+    tapping-term-ms = <200>;
+    bindings = <&kp BSPC>, <&caps_word>;
+)
 ZMK_HOLD_TAP(sft_nav_spc,
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-    bindings = <&mo>, <&sft_nav_spc_tap>;
+    bindings = <&mo>, <&ak_space>;
 )
 ZMK_TAP_DANCE(sft_nav_spc_tap,
     tapping-term-ms = <225>;
@@ -360,11 +387,14 @@ ZMK_MACRO(dot_spc,
     tap-ms = <20>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
-ZMK_MACRO(allowme,
-    wait-ms = <40>;
-    tap-ms = <40>;
-    bindings = <&kp A &kp LALT &kp LCTRL>;
+
+ZMK_ADAPTIVE_KEY(ak_space,
+    bindings = <&kp SPACE>;
+    akt_sentence { trigger-keys = <EXCL RS(SLASH) LS(SLASH) QMARK DOT HASH MINUS>;
+    bindings = <&kp SPACE &sk LSHFT>;
+    };
 )
+
 // misc aliases
 #define CANCEL          &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV        &kp LS(LA(LG(LC(TAB))))  // previous desktop
@@ -377,12 +407,14 @@ ZMK_MACRO(allowme,
 #define RAY_SWITCH      &ray_switch LGUI 0
 #define FN_TAB          &mo_kp FN TAB
 #define Q_EXCL_SLSH     &q_excl_slsh QMARK 0
-#define SYM_DEL         &mo_kp SYM BSPC
+//#define SYM_DEL         &shift_bkp_sticky LSHFT BSPC
+//#define SYM_DEL         &mo_kp MOUSE BSPC
+#define SYM_DEL         &kp_kp_hold LSHFT BSPC
 #define HMR_J_SSHFT     &s_hmr 0 J
 #define OUTER_LEFT      &outer_left LCTRL 0
 #define OUTER_RIGHT     &outer_right LALT 0
 #define Q_ESC           &q_esc ESC 0
-#define F12_ALT_MEH     &f12_alt_meh LSHFT 0
+#define F12_ALT_MEH     &f12_alt_meh SYM 0
 #define Q_EXC_F1        &q_esc ESC 0
 // #define SFT_NAV_SPC     &sft_nav_spc LSHFT SPACE
 #define SFT_NAV_SPC     &sft_nav_spc NAV SPACE
@@ -398,6 +430,10 @@ ZMK_MACRO(allowme,
 #define Q_ASN_E &asn N8 E
 #define Q_ASN_R &asn N9 R
 
+
+// Utility shortcuts
+#define NP_TODAY_TASK &kp LC(LA(LG(T)))
+#define NP_ADD_TASK &kp LC(LA(LG(N)))
 /* Keymap */
 
 // ZMK_CONDITIONAL_LAYER(Sys,NAV NUM, SYS)  // NAV + NUM --> SYS
@@ -440,13 +476,13 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Fn,
 //╭───────────────┬───────────────┬───────────────┬───────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &kp F12          &kp F7           &kp F8          &kp F9         &swapper    ,   &kp F15       &kp C_PREV   &kp C_VOL_UP    &kp C_NEXT   &kp F19     ,
+   &kp F12          &kp F7           &kp F8          &kp F9         &swapper    ,    U_WH_U         U_WH_L      U_MS_U         U_WH_R      &kp C_VOL_UP ,
 //├───────────────┼───────────────┼───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp F11         &kp F4          &kp F5           &kp F6          &kp PLUS    ,   &kp F14        DSK_PREV    &kp C_VOL_DN    DSK_NEXT     &kp F20     ,
+   &kp F11         &kp F4          &kp F5           &kp F6          &kp F14    ,     U_WH_D         U_MS_L      U_MS_D         U_MS_R       &kp C_VOL_DN ,
 //├───────────────┼───────────────┼───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp F10         &kp F1             &kp F2           &kp F3       &kp RBKT    ,   &kp F13      &kp LG(LS(O)) &kp LG(LS(M))  &kp C_PP      ___         ,
+   &kp F10         &kp F1             &kp F2           &kp F3       &kp F15    ,   &kp F13       &mkp LCLK     &mkp MCLK      &mkp RCLK &mkp LC(LG(LCLK)),
 //╰───────────────┼───────────────┴───────────────┼───────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                                    &kp LPAR        &kp RPAR    ,      ___        &kp C_MUTE
+                                                          ___           ___    ,    &kp LSHFT     ___    &kp LGUI      
 //                                                ╰───────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
@@ -470,20 +506,22 @@ ZMK_BASE_LAYER(Mouse,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   ___            &mkp LCLK     &mkp MCLK      &mkp RCLK    ___        ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   &mkp LCLK      &mkp RCLK
+                                              ___           ___         ,   &mkp LCLK      &mkp RCLK    &mkp LC(LG(LCLK)) 
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
 ZMK_BASE_LAYER(Aero,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬───────────────┬─────────────┬─────────────╮
-   &kp ESC         &kp LA(N7)     &kp LA(N8)   &kp LA(N9)   &kp LA(FSLH),  &kp LA(LS(J)) &kp LA(J)     &kp LA(LS(TAB)) &kp LA(L)     &kp LA(LS(L)),
+   &kp ESC         &kp LA(N7)     &kp LA(N8)   &kp LA(N9)   &kp LA(FSLH),  &kp LA(LS(J)) &kp LA(J)     &kp LA(LS(TAB)) &kp LA(L)     &kp LA(LC(LG(LS(J)))),
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
- &kp LC(LA(LG(N4)))  &kp LA(N4)   &kp LA(N5)  &kp LA(N6)   &kp LA(COMMA),  &kp LG(LS(K))   &kp RSHFT    &kp LGUI       &kp LALT     &kp LCTRL     ,
+ &kp LC(LA(LG(N4)))  &kp LA(N4)   &kp LA(N5)  &kp_kp LA(LS(F)) LA(N6)   &kp LA(COMMA),  &kp LG(LS(K))   &kp RSHFT    &kp LGUI       &kp LALT     &kp LA(LC(LG(LS(K)))),
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┼─────────────┼─────────────┤
- &kp LC(LA(LG(N5)))  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),  &kp LA(LS(F12))   DSK_PREV  &kp LA(LC(LS(TAB)))  DSK_NEXT &kp LC(LA(LG(N8))),
+ &kp LC(LA(LG(N5)))  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)     &kp LA(DOT),  &kp LA(LS(F12)) &kp LC(LA(LG(Q))) &kp LA(LC(LS(TAB))) &kp LC(LA(LG(A))) &kp LC(LA(LG(N8))),
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼───────────────┴───────────────────────────╯
-                                             ___           ___          ,   ___               ___                                              
+                                              &kp LA(LS(B)) &kp LA(LS(SEMICOLON))  ,  NP_ADD_TASK    NP_TODAY_TASK                                                
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯                                          
 )
+
+
 
 /* vim: set ft=c tw=174: */
